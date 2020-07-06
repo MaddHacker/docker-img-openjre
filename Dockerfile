@@ -19,17 +19,17 @@
 
 FROM alpine:latest
 
-LABEL version="8.0.0" \
+LABEL version="11.0.0" \
     maintainer="MaddHacker" \
     author="MaddHacker" \
     description="Run openjdk on any machine without installation"
 
-ARG JAVA_PACKAGE=openjdk8-jre
-ARG JAVA_PACKAGE_VERSION=8.242.08-r2
+ARG JAVA_PACKAGE=openjdk11-jre
+ARG JAVA_PACKAGE_VERSION=11.0.7_p10-r1
 
 RUN \
     # Install needed packages
-    apk -U add "${JAVA_PACKAGE}<${JAVA_PACKAGE_VERSION}" && \
+    apk -U --no-cache add "${JAVA_PACKAGE}<${JAVA_PACKAGE_VERSION}" && \
     # Make our temp dir
     mkdir -p /tmp/java-jre
 
